@@ -1,0 +1,5 @@
+Instrucciones:
+
+1). Ejecute el archivo hkex.py con el interprete de Python 3, debe poseer una conexión a Internet para que el script pueda leer desde la URL https://www.hkex.com.hk/eng/stat/smstat/dayquot/d181204e.htm la data que se encuentra en esa dirección.
+
+2). Una vez que se ejecute, el programa habra creado y almacenado 7 archivos en formato CSV dentro de la carpeta hkex, que contendra información de algunos apartados contenidos en la URL.
