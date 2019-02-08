@@ -7,7 +7,7 @@
 """
 
 import subprocess
-
+import sys
 
 class chargetest:
     hosts = list()
@@ -16,9 +16,16 @@ class chargetest:
         self.hosts = hosts
 
     def ping(self, host):
-        ret = subprocess.call(['ping', '-c', '3', '-W', '3', host],
-                              stdout=open('/dev/null', 'w'),
-                              stderr=open('/dev/null', 'w'))
+        if sys.platform.lower()[:3] == 'lin':
+            ret = subprocess.call(['ping', '-c', '3', '-W', '5', host],
+                                  stdout=open('/dev/null', 'w'),
+                                  stderr=open('/dev/null', 'w'))
+        elif sys.platform.lower()[:3] == 'win':
+            ret = subprocess.call(['ping', '-n', '3', '-w', '5', host],
+                                  stdout=open('type c:\autoexec.bat > NUL',
+                                  'w'),
+                                  stderr=open('type c:\autoexec.bat > NUL',
+                                  'w'))
         return ret == 0
 
     def isnetup(self):
